@@ -1920,7 +1920,7 @@ const HomePage = () => {
     setError((prev) => ({ ...prev, announcements: null }))
 
     try {
-      const response = await fetch("http://localhost:5005/api/announcements")
+      const response = await fetch("https://backendcollegeconnect.onrender.com/api/announcements")
       if (!response.ok) {
         throw new Error(`Failed to fetch announcements: ${response.statusText}`)
       }
@@ -1940,7 +1940,7 @@ const HomePage = () => {
     setError((prev) => ({ ...prev, achievements: null }))
 
     try {
-      const response = await fetch("http://localhost:5005/api/achievements")
+      const response = await fetch("https://backendcollegeconnect.onrender.com/api/achievements")
       if (!response.ok) {
         throw new Error(`Failed to fetch achievements: ${response.statusText}`)
       }
@@ -1957,7 +1957,7 @@ const HomePage = () => {
   // Add announcement API call
   const addAnnouncementAPI = async (description) => {
     try {
-      const response = await fetch("http://localhost:5005/api/announcements", {
+      const response = await fetch("https://backendcollegeconnect.onrender.com/api/announcements", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ description }),
@@ -1977,7 +1977,7 @@ const HomePage = () => {
   // Add achievement API call
   const addAchievementAPI = async (description) => {
     try {
-      const response = await fetch("http://localhost:5005/api/achievements", {
+      const response = await fetch("https://backendcollegeconnect.onrender.com/api/achievements", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ description }),
@@ -2076,7 +2076,7 @@ const HomePage = () => {
     setError((prev) => ({ ...prev, posts: null }))
 
     try {
-      const res = await fetch("http://localhost:5005/api/posts")
+      const res = await fetch("https://backendcollegeconnect.onrender.com/api/posts")
       if (!res.ok) {
         throw new Error(`Failed to fetch posts: ${res.statusText}`)
       }
@@ -2123,7 +2123,7 @@ const HomePage = () => {
       console.log("Sending post with content:", postText)
       console.log("Images count:", postImages.length)
 
-      const response = await fetch("http://localhost:5005/api/posts", {
+      const response = await fetch("https://backendcollegeconnect.onrender.com/api/posts", {
         method: "POST",
         body: formData,
         // Don't set Content-Type header when sending FormData
@@ -2157,7 +2157,7 @@ const HomePage = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:5005/api/posts/${postId}/like`, {
+      const res = await fetch(`https://backendcollegeconnect.onrender.com/api/posts/${postId}/like`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: user._id }),
@@ -2183,7 +2183,7 @@ const HomePage = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:5005/api/posts/${postId}/dislike`, {
+      const res = await fetch(`https://backendcollegeconnect.onrender.com/api/posts/${postId}/dislike`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: user._id }),
@@ -2211,7 +2211,7 @@ const HomePage = () => {
     if (!text.trim()) return
 
     try {
-      const res = await fetch(`http://localhost:5005/api/posts/${postId}/comment`, {
+      const res = await fetch(`https://backendcollegeconnect.onrender.com/api/posts/${postId}/comment`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -2244,7 +2244,7 @@ const HomePage = () => {
     setIsDeleting(true)
 
     try {
-      const res = await fetch(`http://localhost:5005/api/posts/${postId}`, {
+      const res = await fetch(`https://backendcollegeconnect.onrender.com/api/posts/${postId}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: user._id }),
