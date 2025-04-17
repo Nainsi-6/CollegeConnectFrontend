@@ -21,7 +21,7 @@ const ProfileView = () => {
         setIsLoading(true)
 
         // Fetch profile
-        const profileResponse = await fetch(`http://localhost:5005/api/profiles/${userId}`, {
+        const profileResponse = await fetch(`https://backendcollegeconnect.onrender.com/api/profiles/${userId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -36,7 +36,7 @@ const ProfileView = () => {
 
         // Fetch connection status if not viewing own profile
         if (userId !== currentUser?._id) {
-          const connectionsResponse = await fetch("http://localhost:5005/api/users/connections", {
+          const connectionsResponse = await fetch("https://backendcollegeconnect.onrender.com/api/users/connections", {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -75,7 +75,7 @@ const ProfileView = () => {
 
   const handleConnect = async () => {
     try {
-      const response = await fetch(`http://localhost:5005/api/users/connect/${userId}`, {
+      const response = await fetch(`https://backendcollegeconnect.onrender.com/api/users/connect/${userId}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -100,7 +100,7 @@ const ProfileView = () => {
     if (!connectionId) return
 
     try {
-      const response = await fetch(`http://localhost:5005/api/users/connections/${connectionId}`, {
+      const response = await fetch(`https://backendcollegeconnect.onrender.com/api/users/connections/${connectionId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -123,7 +123,7 @@ const ProfileView = () => {
     if (!connectionId) return
 
     try {
-      const response = await fetch(`http://localhost:5005/api/users/connections/${connectionId}/accept`, {
+      const response = await fetch(`https://backendcollegeconnect.onrender.com/api/users/connections/${connectionId}/accept`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
