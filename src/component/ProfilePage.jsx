@@ -32,7 +32,7 @@ const ProfilePage = () => {
         }
 
         // Fetch user profile from backend
-        const response = await axios.get("http://localhost:5005/api/profiles/me", {
+        const response = await axios.get("https://backendcollegeconnect.onrender.com/api/profiles/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
