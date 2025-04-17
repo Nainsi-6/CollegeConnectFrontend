@@ -35,7 +35,7 @@ const ConnectPeople = () => {
   const fetchConnectionRequests = async () => {
     try {
       setLoading((prev) => ({ ...prev, requests: true }))
-      const response = await axios.get("http://localhost:5005/api/users/requests", config)
+      const response = await axios.get("https://backendcollegeconnect.onrender.com/api/users/requests", config)
       setConnectionRequests(response.data.requests)
     } catch (error) {
       console.error("Error fetching connection requests:", error)
@@ -49,7 +49,7 @@ const ConnectPeople = () => {
   const fetchSuggestedUsers = async () => {
     try {
       setLoading((prev) => ({ ...prev, suggestions: true }))
-      const response = await axios.get("http://localhost:5005/api/users/suggested", config)
+      const response = await axios.get("https://backendcollegeconnect.onrender.com/api/users/suggested", config)
       setSuggestedUsers(response.data.users)
     } catch (error) {
       console.error("Error fetching suggested users:", error)
@@ -66,7 +66,7 @@ const ConnectPeople = () => {
     try {
       setIsSearching(true)
       setLoading((prev) => ({ ...prev, search: true }))
-      const response = await axios.get(`http://localhost:5005/api/users/search?query=${searchQuery}`, config)
+      const response = await axios.get(`https://backendcollegeconnect.onrender.com/api/users/search?query=${searchQuery}`, config)
       setSearchResults(response.data.users)
     } catch (error) {
       console.error("Error searching users:", error)
@@ -90,7 +90,7 @@ const ConnectPeople = () => {
   // Send a follow request
   const handleFollow = async (userId) => {
     try {
-      await axios.post(`http://localhost:5005/api/users/follow/${userId}`, {}, config)
+      await axios.post(`https://backendcollegeconnect.onrender.com/api/users/follow/${userId}`, {}, config)
       toast.success("Connection request sent!")
 
       // Update the UI to reflect the sent request
@@ -108,7 +108,7 @@ const ConnectPeople = () => {
   // Respond to a connection request
   const handleRequestResponse = async (requestId, action) => {
     try {
-      await axios.put(`http://localhost:5005/api/users/request/${requestId}`, { action }, config)
+      await axios.put(`https://backendcollegeconnect.onrender.com/api/users/request/${requestId}`, { action }, config)
 
       toast.success(`Request ${action === "accept" ? "accepted" : "rejected"}`)
 
