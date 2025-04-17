@@ -26,7 +26,7 @@ const EventsPage = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:5005/api/events");
+      const response = await axios.get("https://backendcollegeconnect.onrender.com/api/events");
       setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);
@@ -40,7 +40,7 @@ const EventsPage = () => {
 
     if (validEvents.length !== events.length) {
       try {
-        await axios.post("http://localhost:5005/api/events/deleteExpired", {
+        await axios.post("https://backendcollegeconnect.onrender.com/api/events/deleteExpired", {
           expiredEvents: events.filter(event => event.date < today),
         });
         setEvents(validEvents);
@@ -72,7 +72,7 @@ const EventsPage = () => {
     formData.append("googleFormLink", newEvent.googleFormLink);
 
     try {
-      await axios.post("http://localhost:5005/api/events", formData, {
+      await axios.post("https://backendcollegeconnect.onrender.com/api/events", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       fetchEvents();
