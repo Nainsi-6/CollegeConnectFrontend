@@ -95,7 +95,7 @@ const Navbar = () => {
         const token = localStorage.getItem("token")
         if (!token) return
 
-        const response = await axios.get("http://localhost:5005/api/user", {
+        const response = await axios.get("https://backendcollegeconnect.onrender.com/api/user", {
           headers: { Authorization: token },
         })
         setUser(response.data)
