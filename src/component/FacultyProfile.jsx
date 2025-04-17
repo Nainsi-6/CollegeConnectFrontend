@@ -6,7 +6,7 @@ import axios from "axios"
 import ProfileHeader from "./ProfileHeader"
 
 // Set base URL for API requests
-const API_BASE_URL = "http://localhost:5005" // Make sure this matches your backend server port
+const API_BASE_URL = "https://backendcollegeconnect.onrender.com" // Make sure this matches your backend server port
 
 const FacultyProfile = () => {
   const navigate = useNavigate()
